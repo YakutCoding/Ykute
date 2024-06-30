@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    function openUrl(url) {
+      window.open(url, '_blank').focus();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      });
+
+      document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+  <title>Ykute</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <style>
+    body,
+    h1,
+    h2,
+    p {
+      font-family: "Ubuntu", sans-serif;
+      color: white;
+    }
+
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      background-color: black;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, black, transparent);
+      top: 0;
+      left: 0;
+    }
+
+    .content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      text-align: left;
+      color: white;
+      max-width: 600px;
+      font-size: 1.2em;
+      margin-left: 40px;
+      margin-bottom: 40px;
+    }
+
+    .header {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .buttons a {
+      margin: 10px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .header-container {
+      position: absolute;
+      top: 0px;
+      width: calc(100% - 20px);
+      left: 20px;
+      right: 20px;
+      background-color: black;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+    }
+
+    .scrollable-content {
+      height: auto;
+      background-color: #f1f1f1;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .game-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .game-card {
+      background-color: #333;
+      color: white;
+      overflow: hidden;
+      margin: 10px;
+      flex: 1 1 calc(33.333% - 20px);
+      box-sizing: border-box;
+    }
+
+    .game-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+
+    .game-card-content {
+      padding: 20px;
+    }
+
+    .game-card h3 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+      .game-card {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .game-card {
+        flex: 1 1 100%;
+      }
+    }
+
+    .about-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      background-color: black;
+      color: white;
+      margin: 20px 0;
+    }
+
+    .about-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .about-section-content {
+      max-width: 600px;
+    }
+
+    .about-section h2 {
+      font-weight: bold;
+    }
+
+    .about-section p {
+      font-size: 1.2em;
+    }
+
+    .about-section button {
+      display: block;
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .buttonyt {
+      display: block;
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .roadmap-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      background-color: black;
+      color: white;
+      margin: 10px 0;
+    }
+
+    .roadmap-section h2 {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .phase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+
+    .phase img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .phase h3 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* Fade-in and upward animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="video-container fade-in">
+    <video autoplay muted loop>
+      <source src="https://yakutcoding.github.io/Ykute/0630%20(1)(2).mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+    <div class="header-container" style="height:70px">
+      <div class="header">
+        <strong>Ykute.com</strong>
+      </div>
+      <div class="social-links">
+        <a href="https://x.com/LordYakut" target="_blank">Twitter</a>
+        <a href="" target="_blank">Discord (Coming Soon)</a>
+      </div>
+    </div>
+    <div class="content">
+      <h1><strong>Ykute <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_135619581.png" width="40px" height="40px" style="border-radius:20px"></strong></h1>
+      <p>Vincent, the founder of Ykute, is a solo developer who focuses on creating sickass multiplayer games. However, due to budget constraints, most of his games have failed. To address this, he created Ykute Token to improve his game's server efficiency and to help develop his own games with the goal of becoming a leader in the indie game market.</p>
+      <div class="buttons">
+        <a href="#">See Upcoming Games (Coming soon)</a>
+        <a href="#">Buy Token</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollable-content fade-in" style="background-color: black; margin-top: 40px; margin-bottom: 50px;">
+    <h2 style="margin-left: 20px;"><b>My Games</b></h2>
+    <div style="margin-top: 60px;">
+      <div class="game-cards">
+        <div class="game-card fade-in">
+          <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_153627052.png" alt="Game Thumbnail">
+          <div class="game-card-content" style="height: 240px;">
+            <h3><b>ETERNAL MATCH</b></h3>
+            <p>A Stupid Gladiator multiplayer game, where you should kill each other. This Game was made with 10$ Budget only. (Because the publisher is too lazy. im not gonna develop it again)
+              <br><br>
+              <button onclick="openUrl('https://play.google.com/store/apps/details?id=com.YKuteGames.EternalMatch&hl=en&gl=US')" class="buttonyt">Download (Android)</button>
+            </p>
+          </div>
+        </div>
+        <div class="game-card fade-in">
+          <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_153755125.png" alt="Game Thumbnail">
+          <div class="game-card-content">
+            <h3><b>MURREL</b></h3>
+            <p>A Stupid Survival Hardcore game inspired by Muck and Minecraft, This game was winning the Devindo gamejam Award. This game was made with 0$ Budget.</p>
+            <br>
+            <button onclick="openUrl('https://yakut-developer.itch.io/murrel')" class="buttonyt">Download (Android,PC)</button>
+            </p>
+          </div>
+        </div>
+        <div class="game-card fade-in">
+          <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_135619581.png" alt="Game Thumbnail">
+          <div class="game-card-content">
+            <h3><b>DREADFULL DUELS (ONGOING)</b></h3>
+            <p>This is the first time Ykute making game and planned to use Ykute token to get any fund, server stability, and planned to make Marketplace that you can buy only with Ykute Token.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="roadmap-section fade-in">
+    <h2>Roadmap & Tokenomics</h2>
+    <div class="phase fade-in">
+      <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_162528576.png" alt="Phase 1">
+      <h3>Phase 1: Listing</h3>
+      <p>Listing at DEX And prepare all.</p>
+    </div>
+    <div class="phase fade-in">
+      <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_162528576.png" alt="Phase 2">
+      <h3>Phase 2: Airdrop Project</h3>
+      <p>Creating airdrop games to gain more interest</p>
+    </div>
+    <div class="phase fade-in">
+      <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_162528576.png" alt="Phase 3">
+      <h3>Phase 3: Start Doing</h3>
+      <p>Working game project, and list to CEX</p>
+    </div>
+    <div class="phase fade-in">
+      <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_162528576.png" alt="Phase 4">
+      <h3>Phase 4: Conquer</h3>
+      <p>Conquer game market, list to more CEX</p>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>
+    <div style="background-color: white; width: 300px;height: 120px; border-radius: 10px;">
+      <p style="color:black; text-align: center; align-items: center;justify-content: center;">
+        Total Supply: 10,000,000 $KUTE
+        <br> Max Supply: 10,000,000 $KUTE
+        <br> Circulating Supply: ‍10,000,000 $KUTE
+        <br> Ownership: Fully community-owned.</p>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="about-section fade-in">
+    <h2>About Ykute</h2>
+    <br>
+    <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_145709043.png" width="400px" height="300px" alt="About Ykute">
+    <div class="about-section-content">
+      <p>My real Name is Vincent Darrel, chill, theres no rugpull. Vincent was a dank memer that focusing to make meme games like Abdul vs Kpoper, Komisan Kodok vs kaori cicak, apabila vs terkadang. but suddenly changes his mind to seriously create a Multiplayer game and monopoly the market of gaming.</p>
+      <br>
+      <button onclick="openUrl('https://www.youtube.com/channel/UCs2Q-wHt4us5CukmwkGWiXQ')">Subscribe my YouTube anyway.</button>
+    </div>
+  </div>
+</body>
+
+</html>
