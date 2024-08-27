@@ -108,9 +108,7 @@
     .header-container {
       position: absolute;
       top: 0px;
-      width: calc(100% - 20px);
-      left: 20px;
-      right: 20px;
+      width: 100%;
       background-color: black;
       padding: 10px 20px;
       box-sizing: border-box;
@@ -161,6 +159,11 @@
       .game-card {
         flex: 1 1 calc(50% - 20px);
       }
+      .overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, black, transparent); /* Mobile view */
+  }
     }
 
     @media (max-width: 480px) {
@@ -244,7 +247,14 @@
       font-weight: bold;
       margin-bottom: 40px;
     }
-
+    @font-face {
+            font-family: 'Horizon';
+            src: url('https://ykute.xyz/horizon.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'HorizonOutline';
+            src: url('https://ykute.xyz/horizon_outlined.otf') format('opentype');
+        }
     .phase {
       display: flex;
       flex-direction: column;
@@ -277,35 +287,53 @@
 </head>
 
 <body>
+
+ 
   <div class="video-container fade-in">
     <video autoplay muted loop>
       <source src="https://yakutcoding.github.io/Ykute/0630%20(1)(2).mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
     <div class="overlay"></div>
-    <div class="header-container" style="height:70px">
+    <div class="header-container" style="width: 100%;height:70px">
       <div class="header">
         <strong>Ykute.xyz</strong>
       </div>
       <div class="social-links">
-        <a href="https://x.com/LordYakut" target="_blank">Twitter</a>
-       
+        <a href="https://x.com/LordYakut" target="_blank">X</a>
+        <a href="https://youtube.com/@YakutDeveloper" target="_blank">Youtube</a>
+        <a href="https://tiktok.com/@gwyakut" target="_blank">Tiktok</a>
       </div>
     </div>
+    
     <div class="content">
-      <h1><strong>Ykute <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_135619581.png" width="40px" height="40px" style="border-radius:20px"></strong></h1>
-      <p>Vincent, the founder of Ykute, is a solo developer who focuses on creating sickass multiplayer games. However, due to budget constraints, most of his games have failed. To address this, he created Ykute Token to improve his game's server efficiency and to help develop his own games with the goal of becoming a leader in the indie game market.</p>
+     
+    
+      <h1><strong style="font-family:Horizon, sans-serif;">Ykute <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_135619581.png" width="40px" height="40px" style="border-radius:20px"></strong></h1>
+      <p>I primarily focus on creating high-quality multiplayer/online games as a solo developer, driven by a strong determination to deliver exceptional gaming experiences.</p>
       <div class="buttons">
         <a href="#">See Upcoming Games (Coming soon)</a>
-        <a href="https://pump.fun/A9fzEdoG91Wpru37Gd24YgcBjy7zpJc3MbqAc85Rpump">Buy Token (pump.fun)</a>
+   <!--     <a href="https://pump.fun/A9fzEdoG91Wpru37Gd24YgcBjy7zpJc3MbqAc85Rpump">Buy Token (pump.fun)</a> -->
       </div>
     </div>
   </div>
+  <div class="fade-in" style="position: absolute;left: 75%;top:20%;color:black;background-color: white;width:18%;border-radius: 20px;height: 9%;margin-bottom: 10px;">
 
+    <center style="  margin-top: 15px;margin:10px;font-size:calc(0.8vw + 0.6vh);"><strong style="font-family:Horizon, sans-serif;">➤ ETERNAL MATCH</strong><br>
+    <font style="font-size:calc(0.6vw + 0.5vh);"><strong>By Ykute<br><br></strong><br><br><br></font></center>
+  </div>
+  
   <div class="scrollable-content fade-in" style="background-color: black; margin-top: 40px; margin-bottom: 50px;">
     <h2 style="margin-left: 20px;"><b>My Games</b></h2>
     <div style="margin-top: 60px;">
       <div class="game-cards">
+        <div class="game-card fade-in">
+          <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_135619581.png" alt="Game Thumbnail">
+          <div class="game-card-content">
+            <h3><b>BLITZ ( AIRDROP )</b></h3>
+            <p>This is the first time Ykute making game and planned to use Ykute token to get any fund, server stability, and planned to make Marketplace that you can buy only with Ykute Token.</p>
+          </div>
+        </div>
         <div class="game-card fade-in">
           <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_153627052.png" alt="Game Thumbnail">
           <div class="game-card-content" style="height: 240px;">
@@ -326,13 +354,7 @@
             </p>
           </div>
         </div>
-        <div class="game-card fade-in">
-          <img src="https://yakutcoding.github.io/Ykute/image_2024-06-30_135619581.png" alt="Game Thumbnail">
-          <div class="game-card-content">
-            <h3><b>DREADFULL DUELS (ONGOING)</b></h3>
-            <p>This is the first time Ykute making game and planned to use Ykute token to get any fund, server stability, and planned to make Marketplace that you can buy only with Ykute Token.</p>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
